@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sp_1/app_scroll_behavior.dart';
-import 'package:sp_1/route/app_pages.dart';
-import 'package:sp_1/ui/theme/app_theme.dart';
+import 'package:kkb_flutter/app_scroll_behavior.dart';
+import 'package:kkb_flutter/route/app_pages.dart';
+import 'package:kkb_flutter/ui/theme/app_theme.dart';
 
 void main() {
   runApp(GetMaterialApp(

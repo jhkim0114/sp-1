@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:sp_1/ui/view/ground_view.dart';
-import 'package:sp_1/ui/view/home_view.dart';
-import 'package:sp_1/binding/home_binding.dart';
+import 'package:kkb_flutter/ui/view/ground_view.dart';
+import 'package:kkb_flutter/ui/view/home_view.dart';
+import 'package:kkb_flutter/binding/home_binding.dart';
 part './app_routes.dart';
 
 class AppPages {
