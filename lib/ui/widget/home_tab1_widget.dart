@@ -12,3 +12,4 @@ class HomeTab1Widget extends GetView<HomeController> {
     );
   }
 }
+
