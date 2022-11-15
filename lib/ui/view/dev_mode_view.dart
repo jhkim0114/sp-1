@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kkb_flutter/controller/main_controller.dart';
 
-class DevModeView extends StatelessWidget {
+class DevModeView extends GetView<HomeController> {
   const DevModeView({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +17,11 @@ class DevModeView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('dev mode'),
-          Text('mode1')
+          Obx(() {
+            return Checkbox(value: controller.notificationBar, onChanged: (isChecked) {
+              controller.notificationBar = isChecked;
+            });
+          })
         ],
       ),
     );

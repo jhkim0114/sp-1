@@ -29,7 +29,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 child: Column(
                   children: [
-                    NotificationBarWidget(),
+                    const NotificationBarWidget(),
                     Expanded(
                       child: DefaultTabController(
                         length: 4,

@@ -8,6 +8,10 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   final _tabIndex = 0.obs;
   get tabIndex => _tabIndex.value;
 
+  final _notificationBar = true.obs;
+  get notificationBar => _notificationBar.value;
+  set notificationBar(value) => _notificationBar.value = value;
+
   @override
   void onInit() {
     tabController = TabController(length: 4, vsync: this, initialIndex: 0);
