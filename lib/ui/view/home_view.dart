@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/controller/main_controller.dart';
-import 'package:kkb_flutter/ui/theme/app_theme.dart';
+import 'package:kkb_flutter/ui/theme/app_colors.dart';
 import 'package:kkb_flutter/ui/view/dev_mode_view.dart';
 import 'package:kkb_flutter/ui/widget/home_tab1_widget.dart';
 import 'package:kkb_flutter/ui/widget/home_tab2_widget.dart';
@@ -17,7 +17,6 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
         body: Container(
           alignment: Alignment.center,
-          color: const Color(0xfff9f9f9),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -34,15 +33,18 @@ class HomeView extends GetView<HomeController> {
                       child: DefaultTabController(
                         length: 4,
                         child: Scaffold(
-                          bottomNavigationBar: TabBar(
-                            controller: controller.tabController,
-                            tabs: [
-                              Tab(icon: Icon(Icons.person),),
-                              Tab(icon: Icon(Icons.person),),
-                              Tab(icon: Icon(Icons.person),),
-                              Tab(icon: Icon(Icons.person),),
-                            ],
-                          ),
+                          bottomNavigationBar: Obx(() {
+                            return TabBar(
+                              controller: controller.tabController,
+                              tabs: [
+                                Tab(icon: Icon(Icons.person, color: controller.tabIndex == 0? tabColorBlack : tabColorGrey, size: 29,),),
+                                Tab(icon: Icon(Icons.grid_view, color: controller.tabIndex == 1? tabColorBlack : tabColorGrey, size: 29,),),
+                                Tab(icon: Icon(Icons.notifications, color: controller.tabIndex == 2? tabColorBlack : tabColorGrey, size: 29,),),
+                                Tab(icon: Icon(Icons.more_horiz, color: controller.tabIndex == 3? tabColorBlack : tabColorGrey, size: 29,),),
+                              ],
+                              indicatorColor: Colors.transparent,
+                            );
+                          }),
                           body: TabBarView(
                             controller: controller.tabController,
                             children: [
