@@ -26,19 +26,24 @@ class NotificationBarWidget extends GetView<HomeController> {
               },
             ),
             const Spacer(),
-            const Icon(Icons.five_g, size: 16, color: Colors.white,),
-            const Icon(Icons.bluetooth, size: 16, color: Colors.white,),
-            const Icon(Icons.access_alarm, size: 14, color: Colors.white,),
+            notificationIcon(Icons.five_g),
+            notificationIcon(Icons.bluetooth),
+            notificationIcon(Icons.access_alarm),
             const SizedBox(width: 2,),
-            const Icon(Icons.volume_off, size: 16, color: Colors.white,),
+            notificationIcon(Icons.volume_off),
             const SizedBox(width: 2,),
-            const Icon(Icons.wifi, size: 16, color: Colors.white,),
-            const Icon(Icons.signal_cellular_alt, size: 16, color: Colors.white,),
-            const Icon(Icons.battery_charging_full, size: 16, color: Colors.white,),
+            notificationIcon(Icons.wifi),
+            notificationIcon(Icons.signal_cellular_alt),
+            // notificationIcon(Icons.battery_charging_full),
+            const Icon(Icons.add_call, size: 15,)
           ],
         ),
       ) : Container();
     });
+  }
+
+  Icon notificationIcon(IconData icon) {
+    return Icon(icon, size: 16, color: Colors.white);
   }
 
 }
