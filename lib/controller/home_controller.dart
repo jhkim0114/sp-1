@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kkb_flutter/common/constants.dart';
 
 class HomeController extends GetxController with GetTickerProviderStateMixin{
 
@@ -7,21 +8,39 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   late TextEditingController textEditingController;
   late ScrollController tab1ScrollController;
 
+  /// 화면 크기
+  List<int> deviceSize = [400, 500, 600, 700, 800, 900, 1000];
+  final _selectDeviceSize = [400.obs, 800.obs];
+  get selectDeviceSizeWidth => _selectDeviceSize[0].value;
+  get selectDeviceSizeHeight => _selectDeviceSize[1].value;
+  set selectDeviceSizeWidth(value) => _selectDeviceSize[0].value = value;
+  set selectDeviceSizeHeight(value) => _selectDeviceSize[1].value = value;
+
+  /// 로그인 뷰
+  final _loginView = false.obs;
+  get loginView => _loginView.value;
+  set loginView(value) => _loginView.value = value;
+
+  /// 탭 index
   final _tabIndex = 0.obs;
   get tabIndex => _tabIndex.value;
 
+  /// 프로그래스바
   final _kkbProgress = false.obs;
   get kkbProgress => _kkbProgress.value;
   set kkbProgress(value) => _kkbProgress.value = value;
 
+  /// 알림바
   final _notificationBar = true.obs;
   get notificationBar => _notificationBar.value;
   set notificationBar(value) => _notificationBar.value = value;
 
+  /// 이름
   final _userName = ''.obs;
   get userName => _userName.value;
   set userName(value) => _userName.value = value;
 
+  /// 상단 높이
   final _topHeight = [80.0.obs, 80.0.obs, 80.0.obs, 80.0.obs];
   get tab1TopHeight => _topHeight[0].value;
   get tab2TopHeight => _topHeight[1].value;
@@ -32,6 +51,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   set tab3TopHeight(value) => _topHeight[2].value = value.toDouble();
   set tab4TopHeight(value) => _topHeight[3].value = value.toDouble();
 
+  /// 상단 이름 크기
   final _topTextSize = [26.0.obs, 26.0.obs, 26.0.obs, 26.0.obs];
   get tab1TopTextSize => _topTextSize[0].value;
   get tab2TopTextSize => _topTextSize[1].value;
@@ -42,17 +62,25 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   set tab3TopTextSize(value) => _topTextSize[2].value = value.toDouble();
   set tab4TopTextSize(value) => _topTextSize[3].value = value.toDouble();
 
+  /// 상단 이미지 크기
   final _topImageSize = 46.0.obs;
   get tab1TopImageSize => _topImageSize.value;
   set tab1TopImageSize(value) => _topImageSize.value = value.toDouble();
 
-  final _userMoney = [100000.obs, 0.obs, 0.obs];
+  /// 계좌금액
+  final _userMoney = [0.obs, 0.obs, 0.obs];
   get user1Money => _userMoney[0].value;
   get user2Money => _userMoney[1].value;
   get user3Money => _userMoney[2].value;
   set user1Money(value) => _userMoney[0].value = value;
   set user2Money(value) => _userMoney[1].value = value;
   set user3Money(value) => _userMoney[2].value = value;
+
+  /// 충전금액 설정
+  List<int> chargeAmount = [1000, 10000, 100000, 1000000];
+  final _selectChargeAmount = 1000.obs;
+  get selectChargeAmount => _selectChargeAmount.value;
+  set selectChargeAmount(value) => _selectChargeAmount.value = value;
 
   @override
   void onInit() {
@@ -64,11 +92,10 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
     textEditingController.addListener(() {
       userName = textEditingController.text;
     });
-    textEditingController.text = '티거';
+    textEditingController.text = Constants.userName;
     tab1ScrollController = ScrollController();
     tab1ScrollController.addListener(() {
       final offset = tab1ScrollController.offset;
-      print('offset: $offset');
       if (80 - offset > 60) {
         tab1TopHeight = 80 - offset;
       } else {
@@ -86,7 +113,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
         tab1TopImageSize = 38.5;
       }
     });
-
     super.onInit();
   }
 
