@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   timer_builder: ^2.0.0
   date_format: ^2.0.7
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Jua
+      fonts:
+        - asset: assets/fonts/Jua-Regular.ttf
+    - family: Day
+      fonts:
+        - asset: assets/fonts/SingleDay-Regular.ttf
+    - family: Noto
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Regular.otf
   # fonts:
   #   - family: Schyler
   #     fonts:

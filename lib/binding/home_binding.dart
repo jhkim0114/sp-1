@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:kkb_flutter/controller/main_controller.dart';
+import 'package:kkb_flutter/controller/home_controller.dart';
 
 class HomeBinding implements Bindings {
 

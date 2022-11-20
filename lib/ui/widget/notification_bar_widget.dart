@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kkb_flutter/controller/main_controller.dart';
+import 'package:kkb_flutter/controller/home_controller.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:date_format/date_format.dart';
 
@@ -34,8 +34,7 @@ class NotificationBarWidget extends GetView<HomeController> {
             const SizedBox(width: 2,),
             notificationIcon(Icons.wifi),
             notificationIcon(Icons.signal_cellular_alt),
-            // notificationIcon(Icons.battery_charging_full),
-            const Icon(Icons.add_call, size: 15,)
+            notificationIcon(Icons.battery_charging_full),
           ],
         ),
       ) : Container();

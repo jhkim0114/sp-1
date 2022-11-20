@@ -8,7 +8,7 @@ void main() {
   runApp(GetMaterialApp(
     initialRoute: Routes.home,
     debugShowCheckedModeBanner: false,
-    // theme: appThemeData,
+    theme: appThemeData,
     scrollBehavior: AppScrollBehavior(),
     defaultTransition: Transition.fade,
     getPages: AppPages.pages,
