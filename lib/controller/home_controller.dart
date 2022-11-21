@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/common/constants.dart';
 
+enum DropDownMenu { MENU1, MENU2 }
+extension DropDownMenuExtension on DropDownMenu {
+  String get name {
+    switch(this) {
+      case DropDownMenu.MENU1: {
+        return 'MENU1';
+      }
+      case DropDownMenu.MENU2: {
+        return 'MENU2';
+      }
+      default: break;
+    }
+    return '';
+  }
+}
+
 class HomeController extends GetxController with GetTickerProviderStateMixin{
 
   late TabController tabController;

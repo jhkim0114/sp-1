@@ -27,6 +27,7 @@ class DevModeView extends GetView<HomeController> {
               const Text('width: '),
               Obx(() => SizedBox(
                 child: DropdownButton<int>(
+                  borderRadius: BorderRadius.circular(8),
                   value: controller.selectDeviceSizeWidth,
                   onChanged: (int? value) {
                     controller.selectDeviceSizeWidth = value;
@@ -46,6 +47,7 @@ class DevModeView extends GetView<HomeController> {
               const Text('height: '),
               Obx(() => SizedBox(
                 child: DropdownButton<int>(
+                  borderRadius: BorderRadius.circular(8),
                   value: controller.selectDeviceSizeHeight,
                   onChanged: (int? value) {
                     controller.selectDeviceSizeHeight = value;
@@ -116,6 +118,7 @@ class DevModeView extends GetView<HomeController> {
           Obx(() => SizedBox(
             width: 230,
             child: DropdownButton<int>(
+              borderRadius: BorderRadius.circular(8),
               value: controller.selectChargeAmount,
               onChanged: (int? value) {
                 controller.selectChargeAmount = value;
