@@ -111,7 +111,7 @@ class DevModeView extends GetView<HomeController> {
                       onChanged: (isChecked) {
                         controller.kkbProgress = isChecked;
                       })),
-              const Text('kkbProgress')
+              const Text('progressBar')
             ],
           ),
           /// 충전금액 설정
