@@ -2,27 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/common/constants.dart';
 
-enum DropDownMenu { MENU1, MENU2 }
-extension DropDownMenuExtension on DropDownMenu {
-  String get name {
-    switch(this) {
-      case DropDownMenu.MENU1: {
-        return 'MENU1';
-      }
-      case DropDownMenu.MENU2: {
-        return 'MENU2';
-      }
-      default: break;
-    }
-    return '';
-  }
-}
-
 class HomeController extends GetxController with GetTickerProviderStateMixin{
 
   late TabController tabController;
   late TextEditingController textEditingController;
   late ScrollController tab1ScrollController;
+  late ScrollController tab2ScrollController;
+  late ScrollController tab3ScrollController;
+  late ScrollController tab4ScrollController;
+  late TabController topTabController;
+  late TabController itemTabController;
+  late PageController itemPageController;
 
   /// 화면 크기
   List<int> deviceSize = [400, 500, 600, 700, 800, 900, 1000];
@@ -78,7 +68,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   set tab3TopTextSize(value) => _topTextSize[2].value = value.toDouble();
   set tab4TopTextSize(value) => _topTextSize[3].value = value.toDouble();
 
-  /// 상단 이미지 크기
+  /// 탭1 상단 이미지 크기
   final _topImageSize = 46.0.obs;
   get tab1TopImageSize => _topImageSize.value;
   set tab1TopImageSize(value) => _topImageSize.value = value.toDouble();
@@ -98,18 +88,47 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   get selectChargeAmount => _selectChargeAmount.value;
   set selectChargeAmount(value) => _selectChargeAmount.value = value;
 
+  /// 상단 스크롤 이동
+  final _topScrollMove = false.obs;
+  get topScrollMove => _topScrollMove.value;
+  set topScrollMove(value) => _topScrollMove.value = value;
+
+  /// 상단탭 index
+  final _topTabIndex = 0.obs;
+  get topTabIndex => _topTabIndex.value;
+  set topTabIndex(value) => _topTabIndex.value = value;
+
+  var topItemPage = 0;
+  var topItemChanging = false;
+  var tab2PageHeight = [0, 360, 1110, 1810, 2230, 2380];
+
+  /// 아이템 포커스
+  final _itemFocus = false.obs;
+  get itemFocus => _itemFocus.value;
+  set itemFocus(value) => _itemFocus.value = value;
+
   @override
   void onInit() {
     tabController = TabController(length: 4, vsync: this, initialIndex: 0);
+    textEditingController = TextEditingController();
+    topTabController = TabController(length: 4, vsync: this, initialIndex: 0);
+    tab1ScrollController = ScrollController();
+    tab2ScrollController = ScrollController();
+    tab3ScrollController = ScrollController();
+    tab4ScrollController = ScrollController();
+    itemTabController = TabController(length: 6, vsync: this, initialIndex: 0);
+    itemPageController = PageController(initialPage: 0);
+
     tabController.addListener(() {
       _tabIndex.value = tabController.index;
     });
-    textEditingController = TextEditingController();
+
     textEditingController.addListener(() {
       userName = textEditingController.text;
     });
     textEditingController.text = Constants.userName;
-    tab1ScrollController = ScrollController();
+
+
     tab1ScrollController.addListener(() {
       final offset = tab1ScrollController.offset;
       if (80 - offset > 60) {
@@ -129,6 +148,70 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
         tab1TopImageSize = 38.5;
       }
     });
+
+    tab2ScrollController.addListener(() {
+      final offset = tab2ScrollController.offset.toInt();
+
+      if (80 - offset > 0) {
+        tab2TopHeight = 80 - offset;
+      } else {
+        tab2TopHeight = 0;
+      }
+
+      if (topScrollMove) return;
+
+      if (offset <= tab2PageHeight[1]) {
+        if (topItemPage != 0) {
+          itemTabController.index = 0;
+        }
+      } else if (offset <= tab2PageHeight[2]) {
+        if (topItemPage != 1) {
+          itemTabController.index = 1;
+        }
+      } else if (offset <= tab2PageHeight[3]) {
+        if (topItemPage != 2) {
+          itemTabController.index = 2;
+        }
+      } else if (offset <= tab2PageHeight[4]) {
+        if (topItemPage != 3) {
+          itemTabController.index = 3;
+        }
+      } else if (offset <= tab2PageHeight[5]) {
+        if (topItemPage != 4) {
+          itemTabController.index = 4;
+        }
+      } else if (offset <= tab2PageHeight[5] + 500) {
+        if (topItemPage != 5) {
+          itemTabController.index = 5;
+        }
+      }
+    });
+
+    topTabController.addListener(() {
+      topTabIndex = topTabController.index;
+    });
+
+    itemTabController.addListener(() {
+      topItemPage = itemTabController.index;
+      topItemChanging = itemTabController.indexIsChanging;
+      if (topItemChanging && !topScrollMove) {
+        topScrollMove = true;
+        if (topItemPage == 0) {
+          tab2ScrollController.animateTo(tab2PageHeight[0].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease).then((value) => topScrollMove = false);
+        } else if (topItemPage == 1) {
+          tab2ScrollController.animateTo(tab2PageHeight[1].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease).then((value) => topScrollMove = false);
+        } else if (topItemPage == 2) {
+          tab2ScrollController.animateTo(tab2PageHeight[2].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease).then((value) => topScrollMove = false);
+        } else if (topItemPage == 3) {
+          tab2ScrollController.animateTo(tab2PageHeight[3].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease).then((value) => topScrollMove = false);
+        } else if (topItemPage == 4) {
+          tab2ScrollController.animateTo(tab2PageHeight[4].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease).then((value) => topScrollMove = false);
+        } else if (topItemPage == 5) {
+          tab2ScrollController.animateTo(tab2PageHeight[5].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease).then((value) => topScrollMove = false);
+        }
+      }
+
+    });
     super.onInit();
   }
 
@@ -137,11 +220,14 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
     tabController.dispose();
     textEditingController.dispose();
     tab1ScrollController.dispose();
+    tab2ScrollController.dispose();
+    tab3ScrollController.dispose();
+    tab4ScrollController.dispose();
+    topTabController.dispose();
+    itemTabController.dispose();
+    itemPageController.dispose();
+
     super.dispose();
   }
-
-
-
-
 
 }

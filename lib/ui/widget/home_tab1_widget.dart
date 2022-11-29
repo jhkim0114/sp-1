@@ -13,7 +13,7 @@ class HomeTab1Widget extends GetView<HomeController> {
       color: colorDeepBlue,
       child: Column(
         children: [
-          Obx(() => Container(
+          Obx(() => SizedBox(
             height: controller.tab1TopHeight,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -25,7 +25,7 @@ class HomeTab1Widget extends GetView<HomeController> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                        color: Color(0xff252a3e),
+                        color: const Color(0xff252a3e),
                         borderRadius: BorderRadius.circular(12)
                     ),
                     child: const Text('내  계좌', style: TextStyle(fontSize: 8, color: Colors.white, fontWeight: FontWeight.bold),),
@@ -96,12 +96,12 @@ class HomeTab1Widget extends GetView<HomeController> {
   }
 
   Widget itemWidget(BuildContext context, int color, String title, int money, int type) {
-    return Container(
+    return SizedBox(
       height: 220,
       child: Stack(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10, bottom: 18),
+            padding: const EdgeInsets.only(top: 10, bottom: 18),
             decoration: BoxDecoration(
                 color: Color(color),
                 borderRadius: BorderRadius.circular(12)
@@ -115,22 +115,22 @@ class HomeTab1Widget extends GetView<HomeController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                          Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
                           Text('3333-0$type-1234567', style: TextStyle(fontSize: 10, color: Colors.grey.withOpacity(0.8)),),
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 12, right: 2),
-                      child: IconButton(onPressed: () {  }, icon: Icon(Icons.more_vert, color: Colors.grey, size: 18,)),
+                      child: IconButton(onPressed: () {  }, icon: const Icon(Icons.more_vert, color: Colors.grey, size: 18,)),
                     )
                   ],
                 ),
                 SizedBox(height: type != 1? 6 : 26,),
                 Column(
                   children: [
-                    Text('${Util.numberFormat(money)}원', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
+                    Text('${Util.numberFormat(money)}원', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
                     type != 1? Container(
                       alignment: Alignment.center,
                       child: Stack(
@@ -160,9 +160,9 @@ class HomeTab1Widget extends GetView<HomeController> {
               onPressed: () {
                 // selectPopup(context, type);
               },
-              shape: CircleBorder(),
-              child: Padding(
-                padding: const EdgeInsets.all(90.0),
+              shape: const CircleBorder(),
+              child: const Padding(
+                padding: EdgeInsets.all(90.0),
                 child: Text('이체', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14),),
               ),
             ),
@@ -175,9 +175,9 @@ class HomeTab1Widget extends GetView<HomeController> {
                 // controller.sampleText = '카드이용내역';
                 // controller.sampleView = true;
               },
-              shape: CircleBorder(),
-              child: Padding(
-                padding: const EdgeInsets.all(90.0),
+              shape: const CircleBorder(),
+              child: const Padding(
+                padding: EdgeInsets.all(90.0),
                 child: Text('카드이용내역', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14),),
               ),
             ),
@@ -189,12 +189,12 @@ class HomeTab1Widget extends GetView<HomeController> {
 
   Widget itemLastWidget(String title, String content, String imageName, double imageWidth) {
     return TextButton(
-      style: TextButton.styleFrom(primary: Colors.black),
+      style: TextButton.styleFrom(foregroundColor: Colors.black),
       onPressed: () {
 
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12)
         ),
@@ -203,12 +203,12 @@ class HomeTab1Widget extends GetView<HomeController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: TextStyle(fontSize: 16, color: Colors.white),),
-                SizedBox(height: 5,),
-                Text(content, style: TextStyle(fontSize: 12, color: Colors.grey),),
+                Text(title, style: const TextStyle(fontSize: 16, color: Colors.white),),
+                const SizedBox(height: 5,),
+                Text(content, style: const TextStyle(fontSize: 12, color: Colors.grey),),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Image(image: AssetImage('assets/images/$imageName'), width: imageWidth,)
           ],
         ),
@@ -219,7 +219,7 @@ class HomeTab1Widget extends GetView<HomeController> {
   Widget itemBoxWidget(bool boxType) {
     return boxType? Container(
       decoration: BoxDecoration(
-          color: Color(0xffd9e6ec),
+          color: const Color(0xffd9e6ec),
           borderRadius: BorderRadius.circular(12)
       ),
       child: Padding(
@@ -227,24 +227,24 @@ class HomeTab1Widget extends GetView<HomeController> {
         child: Column(
           children: [
             Row(
-              children: [
+              children: const [
                 Text('세이프박스', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
                 Spacer(),
                 Text('0원', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),)
               ],
             ),
             Container(
-                margin: EdgeInsets.only(top: 16, bottom: 4),
+                margin: const EdgeInsets.only(top: 16, bottom: 4),
                 width: double.infinity,
                 height: 0.1,
                 color: Colors.black54
             ),
             Row(
-              children: [
+              children: const [
                 Text('저금통', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
                 Spacer(),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4),
+                  padding: EdgeInsets.only(top: 4),
                   child: Image(
                     width: 36,
                     height: 36,
@@ -268,13 +268,13 @@ class HomeTab1Widget extends GetView<HomeController> {
               padding: const EdgeInsets.only(left: 20, right: 2),
               child: Row(
                 children: [
-                  Text('다른 금융계좌', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
-                  Spacer(),
-                  IconButton(onPressed: () {  }, icon: Icon(Icons.more_vert, color: Colors.grey, size: 18,),)
+                  const Text('다른 금융계좌', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                  const Spacer(),
+                  IconButton(onPressed: () {  }, icon: const Icon(Icons.more_vert, color: Colors.grey, size: 18,),)
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -284,35 +284,35 @@ class HomeTab1Widget extends GetView<HomeController> {
                     height: 30,
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        image: const DecorationImage(
-                            image: const AssetImage('assets/images/kb_icon.jpg'
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/kb_icon.jpg'
                             )
                         )
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text('KB Star*t통장', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.grey)),
                       Text('0원', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade100,
                         borderRadius: BorderRadius.circular(12)
                     ),
-                    child: Text('이체', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
+                    child: const Text('이체', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
                   ),
                 ],
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 20),
+              margin: const EdgeInsets.symmetric(vertical: 20),
               width: double.infinity,
               height: 0.1,
               color: Colors.black54,
@@ -326,34 +326,34 @@ class HomeTab1Widget extends GetView<HomeController> {
                     height: 30,
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        image: const DecorationImage(
-                            image: const AssetImage('assets/images/nh_icon.jpg'
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/nh_icon.jpg'
                             )
                         )
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text('NH20해봄통장(비대면)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.grey)),
                       Text('0원', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade100,
                         borderRadius: BorderRadius.circular(12)
                     ),
-                    child: Text('이체', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
+                    child: const Text('이체', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
           ],
         ),
       ),
