@@ -3,5 +3,5 @@ final ThemeData appThemeData = ThemeData(
   // primaryColor: Colors.yellow,
   // splashColor: Colors.yellowAccent,
   // highlightColor: Colors.yellow,
-  // fontFamily: 'Noto',
+  fontFamily: 'Noto',
 );
