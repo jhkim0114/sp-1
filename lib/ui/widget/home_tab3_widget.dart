@@ -70,8 +70,8 @@ class HomeTab3Widget extends GetView<HomeController> {
     return TextButton(
         style: TextButton.styleFrom(foregroundColor: Colors.black),
         onPressed: () {
-          // controller.sampleView = true;
-          // controller.sampleText = title;
+          controller.goodsText = title;
+          controller.goodsView = true;
         },
         child: Container(
           padding: const EdgeInsets.only(top: 15, bottom: 18, left: 12, right: 6),

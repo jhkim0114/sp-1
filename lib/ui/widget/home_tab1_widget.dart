@@ -9,6 +9,10 @@ class HomeTab1Widget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    if (controller.init) {
+      controller.init = false;
+      controller.userContext = context;
+    }
     return Container(
       color: colorDeepBlue,
       child: Column(
@@ -172,8 +176,8 @@ class HomeTab1Widget extends GetView<HomeController> {
             transform: Matrix4.translationValues(35.0, 62.0, 0.0),
             child: RawMaterialButton(
               onPressed: () {
-                // controller.sampleText = '카드이용내역';
-                // controller.sampleView = true;
+                controller.goodsText = '카드이용내역';
+                controller.goodsView = true;
               },
               shape: const CircleBorder(),
               child: const Padding(

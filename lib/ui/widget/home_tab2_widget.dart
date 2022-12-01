@@ -327,8 +327,8 @@ class HomeTab2Widget extends GetView<HomeController> {
         autofocus: isGuide? controller.itemFocus? true : false : false,
         style: TextButton.styleFrom(foregroundColor: Colors.black),
         onPressed: () {
-          // controller.sampleView = true;
-          // controller.sampleText = title;
+          controller.goodsText = title;
+          controller.goodsView = true;
         },
         child: Container(
           padding: EdgeInsets.only(left: 12, right: interestLate != null? 12 : 6, top: 15, bottom: 15),
@@ -407,8 +407,8 @@ class HomeTab2Widget extends GetView<HomeController> {
           int count = 0;
           Timer.periodic(const Duration(milliseconds: 1000), (timer) {
             if (count == 2) {
-              // controller.sampleText = type==1? '자유적금' : '비상금대출';
-              // controller.sampleView = true;
+              controller.goodsText = type==1? '자유적금' : '비상금대출';
+              controller.goodsView = true;
             } else if (count > 2) {
               timer.cancel();
             } else {
@@ -425,8 +425,8 @@ class HomeTab2Widget extends GetView<HomeController> {
             int count = 0;
             Timer.periodic(const Duration(milliseconds: 1000), (timer) {
               if (count == 2) {
-                // controller.sampleText = '해외주식 투자';
-                // controller.sampleView = true;
+                controller.goodsText = '해외주식 투자';
+                controller.goodsView = true;
               } else if (count > 2) {
                 timer.cancel();
               } else {

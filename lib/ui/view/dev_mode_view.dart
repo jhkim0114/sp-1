@@ -5,12 +5,12 @@ import 'package:kkb_flutter/controller/home_controller.dart';
 import 'package:kkb_flutter/util/util.dart';
 
 class DevModeView extends GetView<HomeController> {
-  const DevModeView({Key? key}) : super(key: key);
+  const DevModeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       width: 300,
       height: 800,
       alignment: Alignment.topLeft,
@@ -20,7 +20,7 @@ class DevModeView extends GetView<HomeController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(child: Text('dev mode')),
+          Container(child: const Text('dev mode')),
           /// 디바이스 사이즈
           Row(
             children: [
@@ -88,6 +88,19 @@ class DevModeView extends GetView<HomeController> {
                         controller.loginView = isChecked;
                       })),
               const Text('loginView')
+            ],
+          ),
+          /// 상품 뷰 설정
+          Row(
+            children: [
+              Obx(() =>
+                  Checkbox(
+                      value: controller.goodsView,
+                      onChanged: (isChecked) {
+                        controller.goodsText = '상품 뷰';
+                        controller.goodsView = isChecked;
+                      })),
+              const Text('goodsView')
             ],
           ),
           /// 알림 바 설정
@@ -161,6 +174,10 @@ class DevModeView extends GetView<HomeController> {
               }, child: const Text('max'))
             ],
           ),
+          ElevatedButton(onPressed: () {
+            controller.transferView = true;
+            // controller.homeTab1Widget.selectPopup(controller.userContext, 1);
+          }, child: const Text('이체'))
         ],
       ),
     );

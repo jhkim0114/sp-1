@@ -163,8 +163,8 @@ class HomeTab4Widget extends GetView<HomeController> {
       child: TextButton(
           style: TextButton.styleFrom(foregroundColor: Colors.black),
           onPressed: () {
-            // controller.sampleText = title;
-            // controller.sampleView = true;
+            controller.goodsText = title;
+            controller.goodsView = true;
           }, child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -193,8 +193,8 @@ class HomeTab4Widget extends GetView<HomeController> {
       child: TextButton(
           style: TextButton.styleFrom(foregroundColor: Colors.black),
           onPressed: () {
-            // controller.sampleView = true;
-            // controller.sampleText = title;
+            controller.goodsText = title;
+            controller.goodsView = true;
           },
           child: Container(
             padding: const EdgeInsets.only(left: 12, right: 6, top: 15, bottom: 15),

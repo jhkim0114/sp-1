@@ -4,6 +4,7 @@ import 'package:kkb_flutter/controller/home_controller.dart';
 import 'package:kkb_flutter/ui/theme/app_colors.dart';
 
 class LoginView extends GetView<HomeController>{
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class LoginView extends GetView<HomeController>{
       return IgnorePointer(
         ignoring: controller.loginView? false : true,
         child: AnimatedOpacity(
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           opacity: controller.loginView? 1.0 : 0.0,
           child: Container(
             width: double.infinity,
@@ -19,12 +20,12 @@ class LoginView extends GetView<HomeController>{
             color: colorYellow,
             child: Column(
               children: [
-                SizedBox(height: 150,),
-                Image(
+                const SizedBox(height: 150,),
+                const Image(
                     width: 50,
                     image: AssetImage('assets/images/kkb_icon.png')
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                     width: 280,
                     height: 50,
@@ -33,18 +34,18 @@ class LoginView extends GetView<HomeController>{
                       color: Colors.black.withOpacity(0.1),
                     ),
                     child: TextButton(
-                        style: TextButton.styleFrom(primary: Colors.black),
+                        style: TextButton.styleFrom(foregroundColor: Colors.black),
                         onPressed: () {
                           controller.kkbProgress = true;
-                          Future.delayed(Duration(milliseconds: 1000), () {
+                          Future.delayed(const Duration(milliseconds: 1000), () {
                             controller.kkbProgress = false;
                           });
-                          Future.delayed(Duration(milliseconds: 1300), () {
+                          Future.delayed(const Duration(milliseconds: 1300), () {
                             controller.loginView = false;
                           });
-                        }, child: Text('로그인', style: TextStyle(color: Colors.black, fontFamily: 'Noto', fontSize: 13, fontWeight: FontWeight.bold),))
+                        }, child: const Text('로그인', style: TextStyle(color: Colors.black, fontFamily: 'Noto', fontSize: 13, fontWeight: FontWeight.bold),))
                 ),
-                SizedBox(height: 100,)
+                const SizedBox(height: 100,)
               ],
             ),
           ),

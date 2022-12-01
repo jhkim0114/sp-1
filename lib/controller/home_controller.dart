@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/common/constants.dart';
+import 'package:kkb_flutter/ui/widget/home_tab1_widget.dart';
 
 class HomeController extends GetxController with GetTickerProviderStateMixin{
 
@@ -14,6 +15,21 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   late TabController itemTabController;
   late PageController itemPageController;
 
+  /// 로그인 뷰
+  final _loginView = false.obs;
+  get loginView => _loginView.value;
+  set loginView(value) => _loginView.value = value;
+
+  /// 상품 뷰
+  final _goodsView = false.obs;
+  get goodsView => _goodsView.value;
+  set goodsView(value) => _goodsView.value = value;
+
+  /// 이체 뷰
+  final _transferView = false.obs;
+  get transferView => _transferView.value;
+  set transferView(value) => _transferView.value = value;
+
   /// 화면 크기
   List<int> deviceSize = [400, 500, 600, 700, 800, 900, 1000];
   final _selectDeviceSize = [400.obs, 800.obs];
@@ -21,11 +37,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   get selectDeviceSizeHeight => _selectDeviceSize[1].value;
   set selectDeviceSizeWidth(value) => _selectDeviceSize[0].value = value;
   set selectDeviceSizeHeight(value) => _selectDeviceSize[1].value = value;
-
-  /// 로그인 뷰
-  final _loginView = false.obs;
-  get loginView => _loginView.value;
-  set loginView(value) => _loginView.value = value;
 
   /// 탭 index
   final _tabIndex = 0.obs;
@@ -74,13 +85,17 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   set tab1TopImageSize(value) => _topImageSize.value = value.toDouble();
 
   /// 계좌금액
-  final _userMoney = [0.obs, 0.obs, 0.obs];
+  final _userMoney = [0.obs, 0.obs, 0.obs, 0.obs, 0.obs];
   get user1Money => _userMoney[0].value;
   get user2Money => _userMoney[1].value;
   get user3Money => _userMoney[2].value;
   set user1Money(value) => _userMoney[0].value = value;
   set user2Money(value) => _userMoney[1].value = value;
   set user3Money(value) => _userMoney[2].value = value;
+  get userMoneySend => _userMoney[3].value;
+  get userMoneyPush => _userMoney[4].value;
+  set userMoneySend(value) => _userMoney[3].value = value;
+  set userMoneyPush(value) => _userMoney[4].value = value;
 
   /// 충전금액 설정
   List<int> chargeAmount = [1000, 10000, 100000, 1000000];
@@ -106,6 +121,27 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   final _itemFocus = false.obs;
   get itemFocus => _itemFocus.value;
   set itemFocus(value) => _itemFocus.value = value;
+
+  /// 상품 뷰 텍스트
+  final _goodsText = ''.obs;
+  get goodsText => _goodsText.value;
+  set goodsText(value) => _goodsText.value = value;
+
+  /// 계좌 이체
+  final _moneyText = false.obs;
+  get moneyText => _moneyText.value;
+  set moneyText(value) => _moneyText.value = value;
+
+  final _isMoneyOver = false.obs;
+  get isMoneyOver => _isMoneyOver.value;
+  set isMoneyOver(value) => _isMoneyOver.value = value;
+
+  final _isMoneySend = false.obs;
+  get isMoneySend => _isMoneySend.value;
+  set isMoneySend(value) => _isMoneySend.value = value;
+
+  var init = true;
+  late BuildContext userContext;
 
   @override
   void onInit() {
