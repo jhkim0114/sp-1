@@ -100,7 +100,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
 
   var topItemPage = 0;
   var topItemChanging = false;
-  var tab2PageHeight = [0, 360, 1110, 1810, 2230, 2380];
+  var tab2PageHeight = [0, 350, 1140, 1870, 2330, 2500];
 
   /// 아이템 포커스
   final _itemFocus = false.obs;
