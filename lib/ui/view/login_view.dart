@@ -12,8 +12,8 @@ class LoginView extends GetView<HomeController>{
       return IgnorePointer(
         ignoring: controller.loginView? false : true,
         child: AnimatedOpacity(
-          duration: const Duration(milliseconds: 300),
           opacity: controller.loginView? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 300),
           child: Container(
             width: double.infinity,
             height: double.infinity,

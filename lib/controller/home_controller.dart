@@ -14,6 +14,8 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   late TabController topTabController;
   late TabController itemTabController;
   late PageController itemPageController;
+  late AnimationController tab1AnimationController;
+  late AnimationController tab2AnimationController;
 
   /// 로그인 뷰
   final _loginView = false.obs;
@@ -146,11 +148,13 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   get selectAccount => _selectAccount.value;
   set selectAccount(value) => _selectAccount.value = value;
 
-  var init = true;
   late BuildContext userContext;
 
   @override
   void onInit() {
+    tab1AnimationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
+    tab1AnimationController.forward();
+    tab2AnimationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
     tabController = TabController(length: 4, vsync: this, initialIndex: 0);
     textEditingController = TextEditingController();
     topTabController = TabController(length: 4, vsync: this, initialIndex: 0);
@@ -163,6 +167,23 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
 
     tabController.addListener(() {
       _tabIndex.value = tabController.index;
+      switch (_tabIndex.value) {
+        case 0: {
+          tab1AnimationController.forward();
+          tab2AnimationController.reverse();
+          break;
+        }
+        case 1: {
+          tab1AnimationController.reverse();
+          tab2AnimationController.forward();
+          break;
+        }
+        default: {
+          tab1AnimationController.reverse();
+          tab2AnimationController.reverse();
+          break;
+        }
+      }
     });
 
     textEditingController.addListener(() {
@@ -261,6 +282,8 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
 
   @override
   void dispose() {
+    tab1AnimationController.dispose();
+    tab2AnimationController.dispose();
     tabController.dispose();
     textEditingController.dispose();
     tab1ScrollController.dispose();

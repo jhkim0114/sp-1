@@ -9,10 +9,6 @@ class HomeTab1Widget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    if (controller.init) {
-      controller.init = false;
-      controller.userContext = context;
-    }
     return Container(
       color: colorDeepBlue,
       child: Column(

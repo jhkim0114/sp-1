@@ -51,8 +51,20 @@ class HomeView extends GetView<HomeController> {
                                   bottomNavigationBar: TabBar(
                                     controller: controller.tabController,
                                     tabs: [
-                                      Tab(icon: Icon(Icons.person, color: controller.tabIndex == 0? tabColorBlack : tabColorGrey, size: 29,),),
-                                      Tab(icon: Icon(Icons.grid_view, color: controller.tabIndex == 1? tabColorBlack : tabColorGrey, size: 29,),),
+                                      Tab(icon: AnimatedIcon(
+                                        icon: AnimatedIcons.home_menu,
+                                        progress: controller.tab1AnimationController,
+                                        color: controller.tabIndex == 0? tabColorBlack : tabColorGrey,
+                                        size: 29,
+                                      )),
+                                      Tab(icon: AnimatedIcon(
+                                        icon: AnimatedIcons.view_list,
+                                        progress: controller.tab2AnimationController,
+                                        color: controller.tabIndex == 1? tabColorBlack : tabColorGrey,
+                                        size: 29,
+                                      )),
+                                      // Tab(icon: Icon(Icons.person, color: controller.tabIndex == 0? tabColorBlack : tabColorGrey, size: 29,),),
+                                      // Tab(icon: Icon(Icons.grid_view, color: controller.tabIndex == 1? tabColorBlack : tabColorGrey, size: 29,),),
                                       Tab(icon: Icon(Icons.notifications, color: controller.tabIndex == 2? tabColorBlack : tabColorGrey, size: 29,),),
                                       Tab(icon: Icon(Icons.more_horiz, color: controller.tabIndex == 3? tabColorBlack : tabColorGrey, size: 29,),),
                                     ],

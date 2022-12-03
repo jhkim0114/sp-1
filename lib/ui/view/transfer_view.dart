@@ -11,6 +11,7 @@ class TransferView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controller.userContext = context;
       selectPopup(controller.selectAccountList.indexOf(controller.selectAccount) + 1);
       controller.transferView = false;
     });

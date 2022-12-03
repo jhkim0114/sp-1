@@ -68,16 +68,12 @@ class DevModeView extends GetView<HomeController> {
             ],
           ),
           /// 이름 설정
-          SizedBox(
-            width: double.infinity,
-            child: TextField(
-              maxLength: 10,
-              controller: controller.textEditingController,
-              decoration: const InputDecoration(
-                isDense: true,
-                contentPadding: EdgeInsets.only(left: 5, top: 15, bottom: 10, right: 5)
-
-              ),
+          TextField(
+            maxLength: 10,
+            controller: controller.textEditingController,
+            decoration: const InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.only(left: 5, top: 15, bottom: 10, right: 5)
             ),
           ),
           /// 로그인 뷰 설정
@@ -201,7 +197,7 @@ class DevModeView extends GetView<HomeController> {
               ),
               ElevatedButton(onPressed: () {
                 controller.transferView = true;
-                // controller.homeTab1Widget.selectPopup(controller.userContext, 1);
+                controller.tabController.index = 0;
               }, child: const Text('이체'))
             ],
           )
