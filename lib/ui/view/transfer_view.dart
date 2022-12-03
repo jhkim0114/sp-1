@@ -11,7 +11,7 @@ class TransferView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      selectPopup(1);
+      selectPopup(controller.selectAccountList.indexOf(controller.selectAccount) + 1);
       controller.transferView = false;
     });
     return Container();
@@ -148,7 +148,7 @@ class TransferView extends GetView<HomeController> {
                     const SizedBox(width: 8,),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 4),
-                      child: Text('${controller.userName} 3333-0$receiveType-1234567', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                      child: Text('${controller.selectAccountList[receiveType-1]} 3333-0$receiveType-1234567', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                     ),
                     const SizedBox(width: 4,),
                     const Padding(

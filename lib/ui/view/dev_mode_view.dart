@@ -11,7 +11,7 @@ class DevModeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(30),
-      width: 300,
+      width: 320,
       height: 800,
       alignment: Alignment.topLeft,
       decoration: BoxDecoration(
@@ -20,54 +20,56 @@ class DevModeView extends GetView<HomeController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(child: const Text('dev mode')),
+          const Text('dev mode'),
           /// 디바이스 사이즈
           Row(
             children: [
               const Text('width: '),
-              Obx(() => SizedBox(
-                child: DropdownButton<int>(
-                  borderRadius: BorderRadius.circular(8),
-                  value: controller.selectDeviceSizeWidth,
-                  onChanged: (int? value) {
-                    controller.selectDeviceSizeWidth = value;
-                  },
-                  items: controller.deviceSize.map<DropdownMenuItem<int>>((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8),
+              Expanded(
+                child: Obx(() => ButtonTheme(
+                  alignedDropdown: true,
+                  child: DropdownButton<int>(
+                    borderRadius: BorderRadius.circular(8),
+                    isExpanded: true,
+                    value: controller.selectDeviceSizeWidth,
+                    onChanged: (int? value) {
+                      controller.selectDeviceSizeWidth = value;
+                    },
+                    items: controller.deviceSize.map<DropdownMenuItem<int>>((int value) {
+                      return DropdownMenuItem<int>(
+                        value: value,
                         child: Text(value.toString()),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              )),
-              const Spacer(),
+                      );
+                    }).toList(),
+                  ),
+                )),
+              ),
+              const SizedBox(width: 10,),
               const Text('height: '),
-              Obx(() => SizedBox(
-                child: DropdownButton<int>(
-                  borderRadius: BorderRadius.circular(8),
-                  value: controller.selectDeviceSizeHeight,
-                  onChanged: (int? value) {
-                    controller.selectDeviceSizeHeight = value;
-                  },
-                  items: controller.deviceSize.map<DropdownMenuItem<int>>((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8),
+              Expanded(
+                child: Obx(() => ButtonTheme(
+                  alignedDropdown: true,
+                  child: DropdownButton<int>(
+                    borderRadius: BorderRadius.circular(8),
+                    isExpanded: true,
+                    value: controller.selectDeviceSizeHeight,
+                    onChanged: (int? value) {
+                      controller.selectDeviceSizeHeight = value;
+                    },
+                    items: controller.deviceSize.map<DropdownMenuItem<int>>((int value) {
+                      return DropdownMenuItem<int>(
+                        value: value,
                         child: Text(value.toString()),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              )),
+                      );
+                    }).toList(),
+                  ),
+                )),
+              ),
             ],
           ),
           /// 이름 설정
           SizedBox(
-            width: 230,
+            width: double.infinity,
             child: TextField(
               maxLength: 10,
               controller: controller.textEditingController,
@@ -129,26 +131,28 @@ class DevModeView extends GetView<HomeController> {
           ),
           /// 충전금액 설정
           Obx(() => SizedBox(
-            width: 230,
-            child: DropdownButton<int>(
-              borderRadius: BorderRadius.circular(8),
-              value: controller.selectChargeAmount,
-              onChanged: (int? value) {
-                controller.selectChargeAmount = value;
-              },
-              items: controller.chargeAmount.map<DropdownMenuItem<int>>((int value) {
-                return DropdownMenuItem<int>(
-                  value: value,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 5,right: 120),
+            width: double.infinity,
+            child: ButtonTheme(
+              alignedDropdown: true,
+              child: DropdownButton<int>(
+                borderRadius: BorderRadius.circular(8),
+                isExpanded: true,
+                value: controller.selectChargeAmount,
+                onChanged: (int? value) {
+                  controller.selectChargeAmount = value;
+                },
+                items: controller.chargeAmount.map<DropdownMenuItem<int>>((int value) {
+                  return DropdownMenuItem<int>(
+                    value: value,
                     child: Text(Util.numberFormat(value)),
-                  ),
-                );
-              }).toList(),
+                  );
+                }).toList(),
+              ),
             ),
           )),
           /// 충전금액 설정 버튼
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(onPressed: () {
                 if (controller.user1Money < Constants.maxMoney) {
@@ -174,10 +178,33 @@ class DevModeView extends GetView<HomeController> {
               }, child: const Text('max'))
             ],
           ),
-          ElevatedButton(onPressed: () {
-            controller.transferView = true;
-            // controller.homeTab1Widget.selectPopup(controller.userContext, 1);
-          }, child: const Text('이체'))
+          Row(
+            children: [
+              Expanded(
+                child: Obx(() => ButtonTheme(
+                  alignedDropdown: true,
+                  child: DropdownButton<int>(
+                    borderRadius: BorderRadius.circular(8),
+                    isExpanded: true,
+                    value: controller.selectAccountList.indexOf(controller.selectAccount),
+                    onChanged: (int? value) {
+                      controller.selectAccount = controller.selectAccountList[value?? 0];
+                    },
+                    items: controller.selectAccountList.map<DropdownMenuItem<int>>((String value) {
+                      return DropdownMenuItem<int>(
+                        value: controller.selectAccountList.indexOf(value),
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                )),
+              ),
+              ElevatedButton(onPressed: () {
+                controller.transferView = true;
+                // controller.homeTab1Widget.selectPopup(controller.userContext, 1);
+              }, child: const Text('이체'))
+            ],
+          )
         ],
       ),
     );

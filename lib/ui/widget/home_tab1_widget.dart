@@ -162,7 +162,8 @@ class HomeTab1Widget extends GetView<HomeController> {
             transform: Matrix4.translationValues(-10.0, 62.0, 0.0),
             child: RawMaterialButton(
               onPressed: () {
-                // selectPopup(context, type);
+                controller.goodsText = '이체';
+                controller.goodsView = true;
               },
               shape: const CircleBorder(),
               child: const Padding(

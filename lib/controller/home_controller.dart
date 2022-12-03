@@ -140,6 +140,12 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   get isMoneySend => _isMoneySend.value;
   set isMoneySend(value) => _isMoneySend.value = value;
 
+  /// 계좌 이체 통장 선택
+  List<String> selectAccountList = ['티거의 통장 ⭐', '가족통장 👨‍👩‍👧‍👦', '데이트통장 💕️️'];
+  final _selectAccount = '티거의 통장 ⭐'.obs;
+  get selectAccount => _selectAccount.value;
+  set selectAccount(value) => _selectAccount.value = value;
+
   var init = true;
   late BuildContext userContext;
 
@@ -161,6 +167,8 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
 
     textEditingController.addListener(() {
       userName = textEditingController.text;
+      selectAccount = userName + '의 통장 ⭐';
+      selectAccountList[0] = selectAccount;
     });
     textEditingController.text = Constants.userName;
 
