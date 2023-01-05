@@ -13,17 +13,17 @@ class HomeTab3Widget extends GetView<HomeController> {
         children: [
           Obx(() {
             return Container(
-                height: controller.tab2TopHeight,
+                height: controller.tab3TopHeight,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.centerLeft,
-                child: Text('알림', style: TextStyle(fontSize: controller.tab2TopTextSize, fontFamily: 'Day', fontWeight: FontWeight.bold))
+                child: Text('알림', style: TextStyle(fontSize: controller.tab3TopTextSize, fontFamily: 'Day', fontWeight: FontWeight.bold))
             );
           }),
           Expanded(
               child: Stack(
                 children: [
                   ListView(
-                    controller: controller.tab2ScrollController,
+                    controller: controller.tab3ScrollController,
                     children: [
                       const SizedBox(height: 10,),
                       itemFirstWidget('오늘'),
@@ -45,7 +45,7 @@ class HomeTab3Widget extends GetView<HomeController> {
                     ],
                   ),
                   Obx(() {
-                    return controller.tab2TopHeight < 80? Container(
+                    return controller.tab3TopHeight < 80? Container(
                       height: 0.2,
                       color: Colors.black.withOpacity(0.3),
                     ) : Container();

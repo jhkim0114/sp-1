@@ -1,7 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/common/constants.dart';
-import 'package:kkb_flutter/ui/widget/home_tab1_widget.dart';
 
 class HomeController extends GetxController with GetTickerProviderStateMixin{
 
@@ -18,7 +19,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   late AnimationController tab2AnimationController;
 
   /// 로그인 뷰
-  final _loginView = false.obs;
+  final _loginView = true.obs;
   get loginView => _loginView.value;
   set loginView(value) => _loginView.value = value;
 
@@ -149,6 +150,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   set selectAccount(value) => _selectAccount.value = value;
 
   late BuildContext userContext;
+  var init = true;
 
   @override
   void onInit() {
@@ -193,9 +195,9 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
     });
     textEditingController.text = Constants.userName;
 
-
     tab1ScrollController.addListener(() {
       final offset = tab1ScrollController.offset;
+
       if (80 - offset > 60) {
         tab1TopHeight = 80 - offset;
       } else {
@@ -249,6 +251,40 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
         if (topItemPage != 5) {
           itemTabController.index = 5;
         }
+      }
+    });
+
+    tab3ScrollController.addListener(() {
+      final offset = tab3ScrollController.offset.toInt();
+      if (80 - offset > 60) {
+        tab3TopHeight = 80 - offset;
+      } else {
+        tab3TopHeight = 60;
+      }
+
+      if (tab3TopHeight >= 80) {
+        tab3TopTextSize = 26;
+      } else if (tab3TopHeight >= 65) { // 70 ~ 79
+        tab3TopTextSize = 26 - offset/3;
+      } else {
+        tab3TopTextSize = 21;
+      }
+    });
+
+    tab4ScrollController.addListener(() {
+      final offset = tab4ScrollController.offset.toInt();
+      if (80 - offset > 60) {
+        tab4TopHeight = 80 - offset;
+      } else {
+        tab4TopHeight = 60;
+      }
+
+      if (tab4TopHeight >= 80) {
+        tab4TopTextSize = 26;
+      } else if (tab4TopHeight >= 65) { // 70 ~ 79
+        tab4TopTextSize = 26 - offset/3;
+      } else {
+        tab4TopTextSize = 21;
       }
     });
 

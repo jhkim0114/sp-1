@@ -76,6 +76,30 @@ class DevModeView extends GetView<HomeController> {
               contentPadding: EdgeInsets.only(left: 5, top: 15, bottom: 10, right: 5)
             ),
           ),
+          /// 알림 바 설정
+          Row(
+            children: [
+              Obx(() =>
+                  Checkbox(
+                      value: controller.notificationBar,
+                      onChanged: (isChecked) {
+                        controller.notificationBar = isChecked;
+                      })),
+              const Text('notificationBar')
+            ],
+          ),
+          /// 프로그래스바 설정
+          Row(
+            children: [
+              Obx(() =>
+                  Checkbox(
+                      value: controller.kkbProgress,
+                      onChanged: (isChecked) {
+                        controller.kkbProgress = isChecked;
+                      })),
+              const Text('progressBar')
+            ],
+          ),
           /// 로그인 뷰 설정
           Row(
             children: [
@@ -99,30 +123,6 @@ class DevModeView extends GetView<HomeController> {
                         controller.goodsView = isChecked;
                       })),
               const Text('goodsView')
-            ],
-          ),
-          /// 알림 바 설정
-          Row(
-            children: [
-              Obx(() =>
-                  Checkbox(
-                      value: controller.notificationBar,
-                      onChanged: (isChecked) {
-                        controller.notificationBar = isChecked;
-                      })),
-              const Text('notificationBar')
-            ],
-          ),
-          /// 프로그래스바 설정
-          Row(
-            children: [
-              Obx(() =>
-                  Checkbox(
-                      value: controller.kkbProgress,
-                      onChanged: (isChecked) {
-                        controller.kkbProgress = isChecked;
-                      })),
-              const Text('progressBar')
             ],
           ),
           /// 충전금액 설정
@@ -200,7 +200,7 @@ class DevModeView extends GetView<HomeController> {
                 controller.tabController.index = 0;
               }, child: const Text('이체'))
             ],
-          )
+          ),
         ],
       ),
     );

@@ -7,9 +7,9 @@ part './app_routes.dart';
 class AppPages {
   static final pages = [
     /// dev
-    GetPage(name: Routes.ground, page: () => GroundView(), binding: HomeBinding()),
+    GetPage(name: Routes.ground, page: () => const GroundView(), binding: HomeBinding()),
 
     /// release
-    GetPage(name: Routes.home, page: () => HomeView(), binding: HomeBinding()),
+    GetPage(name: Routes.home, page: () => const HomeView(), binding: HomeBinding()),
   ];
 }

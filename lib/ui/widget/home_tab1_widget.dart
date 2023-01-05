@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/controller/home_controller.dart';
@@ -9,6 +11,10 @@ class HomeTab1Widget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    if (controller.init) {
+      controller.init = false;
+      controller.userContext = context;
+    }
     return Container(
       color: colorDeepBlue,
       child: Column(
@@ -136,9 +142,9 @@ class HomeTab1Widget extends GetView<HomeController> {
                       child: Stack(
                         children: [
                           itemPhotoWidget('jiho.jpg', 0, 0),
-                          itemPhotoWidget(type == 2? 'user_1.jpg' : 'user_2.jpg', 25, 0),
-                          type == 2? itemPhotoWidget('user_3.jpg', 50, 0) : Wrap(),
-                          type == 2? itemPhotoWidget('user_4.jpg', 75, 0) : Wrap(),
+                          itemPhotoWidget(type == 2? 'profile_1.jpg' : 'profile_2.jpg', 25, 0),
+                          type == 2? itemPhotoWidget('profile_3.jpg', 50, 0) : Wrap(),
+                          type == 2? itemPhotoWidget('profile_4.jpg', 75, 0) : Wrap(),
                         ],
                       ),
                     ) : Container()
@@ -191,8 +197,20 @@ class HomeTab1Widget extends GetView<HomeController> {
   Widget itemLastWidget(String title, String content, String imageName, double imageWidth) {
     return TextButton(
       style: TextButton.styleFrom(foregroundColor: Colors.black),
-      onPressed: () {
-
+      onPressed: () async {
+        controller.tabController.index = 1;
+        await Future.delayed(const Duration(milliseconds: 600));
+        controller.tab2ScrollController.animateTo(controller.tab2PageHeight[2].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease);
+        await Future.delayed(const Duration(milliseconds: 1000));
+        int count = 0;
+        Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+          if (count > 2) {
+            timer.cancel();
+          } else {
+            controller.itemFocus = !controller.itemFocus;
+          }
+          count++;
+        });
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),

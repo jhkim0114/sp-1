@@ -324,7 +324,7 @@ class HomeTab2Widget extends GetView<HomeController> {
       duration: const Duration(milliseconds: 900),
       color: isGuide? controller.itemFocus? Colors.grey.withOpacity(0.02) : Colors.white : Colors.white,
       child: TextButton(
-        autofocus: isGuide? controller.itemFocus? true : false : false,
+        // autofocus: isGuide? controller.itemFocus? true : false : false,
         style: TextButton.styleFrom(foregroundColor: Colors.black),
         onPressed: () {
           controller.goodsText = title;
@@ -406,10 +406,7 @@ class HomeTab2Widget extends GetView<HomeController> {
           controller.tab2ScrollController.animateTo(controller.tab2PageHeight[type].toDouble(), duration: const Duration(seconds: 1), curve: Curves.ease);
           int count = 0;
           Timer.periodic(const Duration(milliseconds: 1000), (timer) {
-            if (count == 2) {
-              controller.goodsText = type==1? '자유적금' : '비상금대출';
-              controller.goodsView = true;
-            } else if (count > 2) {
+            if (count > 2) {
               timer.cancel();
             } else {
               controller.itemFocus = !controller.itemFocus;
