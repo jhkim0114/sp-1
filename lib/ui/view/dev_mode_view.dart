@@ -125,6 +125,18 @@ class DevModeView extends GetView<HomeController> {
               const Text('goodsView')
             ],
           ),
+          /// 푸시 뷰 설정
+          Row(
+            children: [
+              Obx(() =>
+                  Checkbox(
+                      value: controller.pushView,
+                      onChanged: (isChecked) {
+                        controller.pushView = isChecked;
+                      })),
+              const Text('pushView')
+            ],
+          ),
           /// 충전금액 설정
           Obx(() => SizedBox(
             width: double.infinity,
@@ -151,6 +163,7 @@ class DevModeView extends GetView<HomeController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(onPressed: () {
+                controller.tabController.index = 0;
                 if (controller.user1Money < Constants.maxMoney) {
                   controller.user1Money = controller.user1Money + controller.selectChargeAmount;
                   if (controller.user1Money > Constants.maxMoney) {
@@ -159,6 +172,7 @@ class DevModeView extends GetView<HomeController> {
                 }
               }, child: const Text('충전')),
               ElevatedButton(onPressed: () {
+                controller.tabController.index = 0;
                 if (controller.user1Money < Constants.maxMoney) {
                   controller.user1Money = controller.user1Money * 2;
                   if (controller.user1Money > Constants.maxMoney) {
@@ -167,40 +181,16 @@ class DevModeView extends GetView<HomeController> {
                 }
               }, child: const Text('x2')),
               ElevatedButton(onPressed: () {
+                controller.tabController.index = 0;
                 controller.user1Money = 0;
               }, child: const Text('0')),
               ElevatedButton(onPressed: () {
+                controller.tabController.index = 0;
                 controller.user1Money = Constants.maxMoney;
               }, child: const Text('max'))
             ],
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Obx(() => ButtonTheme(
-                  alignedDropdown: true,
-                  child: DropdownButton<int>(
-                    borderRadius: BorderRadius.circular(8),
-                    isExpanded: true,
-                    value: controller.selectAccountList.indexOf(controller.selectAccount),
-                    onChanged: (int? value) {
-                      controller.selectAccount = controller.selectAccountList[value?? 0];
-                    },
-                    items: controller.selectAccountList.map<DropdownMenuItem<int>>((String value) {
-                      return DropdownMenuItem<int>(
-                        value: controller.selectAccountList.indexOf(value),
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
-                )),
-              ),
-              ElevatedButton(onPressed: () {
-                controller.transferView = true;
-                controller.tabController.index = 0;
-              }, child: const Text('이체'))
-            ],
-          ),
+          // 로그 추가
         ],
       ),
     );

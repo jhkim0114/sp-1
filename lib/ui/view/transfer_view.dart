@@ -293,10 +293,10 @@ class TransferView extends GetView<HomeController> {
                           confirmPopup(receiveName, sendMoney);
                         });
                         Future.delayed(const Duration(milliseconds: 2200), () {
-                          // controller.pushView = true;
+                          controller.pushView = true;
                         });
                         Future.delayed(const Duration(milliseconds: 8000), () {
-                          // controller.pushView = false;
+                          controller.pushView = false;
                         });
                       },
                     ),

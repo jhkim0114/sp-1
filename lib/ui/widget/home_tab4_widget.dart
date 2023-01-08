@@ -28,7 +28,12 @@ class HomeTab4Widget extends GetView<HomeController> {
                               color: Colors.grey.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(12)
                           ),
-                          child: const Text('앱설정', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
+                          child: GestureDetector(
+                            onTap: () {
+                              controller.devModeView = !controller.devModeView;
+                            },
+                            child: const Text('앱설정', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),),
+                          ),
                         ),
                       ],
                     )

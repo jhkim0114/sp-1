@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kkb_flutter/controller/home_controller.dart';
 import 'package:kkb_flutter/ui/theme/app_colors.dart';
+import 'package:kkb_flutter/ui/view/transfer_view.dart';
 import 'package:kkb_flutter/util/util.dart';
 
 class HomeTab1Widget extends GetView<HomeController> {
@@ -11,10 +12,7 @@ class HomeTab1Widget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    if (controller.init) {
-      controller.init = false;
-      controller.userContext = context;
-    }
+    controller.userContext = context;
     return Container(
       color: colorDeepBlue,
       child: Column(
@@ -110,7 +108,7 @@ class HomeTab1Widget extends GetView<HomeController> {
             padding: const EdgeInsets.only(top: 10, bottom: 18),
             decoration: BoxDecoration(
                 color: Color(color),
-                borderRadius: BorderRadius.circular(12)
+                borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
               children: [
@@ -164,8 +162,7 @@ class HomeTab1Widget extends GetView<HomeController> {
             transform: Matrix4.translationValues(-10.0, 62.0, 0.0),
             child: RawMaterialButton(
               onPressed: () {
-                controller.goodsText = '이체';
-                controller.goodsView = true;
+                const TransferView().selectPopup(type);
               },
               shape: const CircleBorder(),
               child: const Padding(

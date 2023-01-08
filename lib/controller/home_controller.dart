@@ -12,7 +12,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   late ScrollController tab2ScrollController;
   late ScrollController tab3ScrollController;
   late ScrollController tab4ScrollController;
-  late TabController topTabController;
   late TabController itemTabController;
   late PageController itemPageController;
   late AnimationController tab1AnimationController;
@@ -32,6 +31,16 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   final _transferView = false.obs;
   get transferView => _transferView.value;
   set transferView(value) => _transferView.value = value;
+
+  /// 개발모드 뷰
+  final _devModeView = false.obs;
+  get devModeView => _devModeView.value;
+  set devModeView(value) => _devModeView.value = value;
+
+  /// 푸시 뷰
+  final _pushView = false.obs;
+  get pushView => _pushView.value;
+  set pushView(value) => _pushView.value = value;
 
   /// 화면 크기
   List<int> deviceSize = [400, 500, 600, 700, 800, 900, 1000];
@@ -159,7 +168,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
     tab2AnimationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
     tabController = TabController(length: 4, vsync: this, initialIndex: 0);
     textEditingController = TextEditingController();
-    topTabController = TabController(length: 4, vsync: this, initialIndex: 0);
     tab1ScrollController = ScrollController();
     tab2ScrollController = ScrollController();
     tab3ScrollController = ScrollController();
@@ -288,10 +296,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
       }
     });
 
-    topTabController.addListener(() {
-      topTabIndex = topTabController.index;
-    });
-
     itemTabController.addListener(() {
       topItemPage = itemTabController.index;
       topItemChanging = itemTabController.indexIsChanging;
@@ -326,7 +330,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
     tab2ScrollController.dispose();
     tab3ScrollController.dispose();
     tab4ScrollController.dispose();
-    topTabController.dispose();
     itemTabController.dispose();
     itemPageController.dispose();
 
