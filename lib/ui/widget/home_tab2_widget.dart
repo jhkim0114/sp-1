@@ -232,68 +232,68 @@ class HomeTab2Widget extends GetView<HomeController> {
                         ),
                       ),
                       const SizedBox(height: 60,),
-                      itemFirstWidget('예금·적금'),
-                      itemWidget('입출금통장', '까다로운 계좌개설도 손쉽게', titleType: null, interestType: null, interestColor: true, interestLate: '0.10', month: null),
+                      itemTabWidget('예금·적금'),
+                      itemGoodsWidget('입출금통장', '까다로운 계좌개설도 손쉽게', titleType: null, interestType: null, interestColor: true, interestLate: '0.10', month: null),
                       itemLine(),
-                      itemWidget('모임통장', '함께쓰고 같이봐요', titleType: null, interestType: null, interestColor: true, interestLate: '0.10', month: null),
+                      itemGoodsWidget('모임통장', '함께쓰고 같이봐요', titleType: null, interestType: null, interestColor: true, interestLate: '0.10', month: null),
                       itemLine(),
-                      itemWidget('세이프박스', '여유자금을 따로 보관하세요', titleType: null, interestType: null, interestColor: true, interestLate: '1.10', month: null),
+                      itemGoodsWidget('세이프박스', '여유자금을 따로 보관하세요', titleType: null, interestType: null, interestColor: true, interestLate: '1.10', month: null),
                       itemLine(),
-                      itemWidget('저금통', '매일매일 조금씩 쌓여요', titleType: null, interestType: null, interestColor: true, interestLate: '3.00', month: null),
+                      itemGoodsWidget('저금통', '매일매일 조금씩 쌓여요', titleType: null, interestType: null, interestColor: true, interestLate: '3.00', month: null),
                       itemLine(),
-                      itemWidget('정기예금', '실시간 이자가 쌓여요', titleType: null, interestType: null, interestColor: true, interestLate: '2.00', month: '12'),
+                      itemGoodsWidget('정기예금', '실시간 이자가 쌓여요', titleType: null, interestType: null, interestColor: true, interestLate: '2.00', month: '12'),
                       itemLine(),
                       Obx(() {
-                        return itemWidget('자유적금', '매일/매주/매월 자유롭게', titleType: null, interestType: '최고', interestColor: true, interestLate: '2.40', month: '12', isGuide: true);
+                        return itemGoodsWidget('자유적금', '매일/매주/매월 자유롭게', titleType: null, interestType: '최고', interestColor: true, interestLate: '2.40', month: '12', isGuide: true);
                       }),
                       itemLine(),
-                      itemWidget('26주적금', '캐릭터와 함께 즐거운 도전', titleType: null, interestType: '최고', interestColor: true, interestLate: '2.50', month: '6'),
+                      itemGoodsWidget('26주적금', '캐릭터와 함께 즐거운 도전', titleType: null, interestType: '최고', interestColor: true, interestLate: '2.50', month: '6'),
                       const SizedBox(height: 20,),
-                      itemLastWidget(1, 0xff81dcb5, true, '자유적금', '주기도, 금액도 내맘대로 선택', 'item_6.png', 55),
+                      itemBannerWidget(1, 0xff81dcb5, true, '자유적금', '주기도, 금액도 내맘대로 선택', 'item_6.png', 55),
                       const SizedBox(height: 60,),
-                      itemFirstWidget('대출'),
+                      itemTabWidget('대출'),
                       Obx(() {
-                        return itemWidget('비상금대출', '현금 필요할 때 유용하게', titleType: null, interestType: '최저', interestColor: false, interestLate: '4.63', month: null, isGuide: true);
+                        return itemGoodsWidget('비상금대출', '현금 필요할 때 유용하게', titleType: null, interestType: '최저', interestColor: false, interestLate: '4.63', month: null, isGuide: true);
                       }),
                       itemLine(),
-                      itemWidget('마이너스 통장대출', '이자는 사용한 만큼만', titleType: null, interestType: '최저', interestColor: false, interestLate: '3.72', month: null),
+                      itemGoodsWidget('마이너스 통장대출', '이자는 사용한 만큼만', titleType: null, interestType: '최저', interestColor: false, interestLate: '3.72', month: null),
                       itemLine(),
-                      itemWidget('신용대출/중신용대출', '목돈이 필요할 땐 쉽고 빠르게', titleType: null, interestType: '최저', interestColor: false, interestLate: '3.68', month: null),
+                      itemGoodsWidget('신용대출/중신용대출', '목돈이 필요할 땐 쉽고 빠르게', titleType: null, interestType: '최저', interestColor: false, interestLate: '3.68', month: null),
                       itemLine(),
-                      itemWidget('개인사업자 대출', '사업자를 위한 1금융권 신용대출', titleType: null, interestType: '최저', interestColor: false, interestLate: '3.99', month: null),
+                      itemGoodsWidget('개인사업자 대출', '사업자를 위한 1금융권 신용대출', titleType: null, interestType: '최저', interestColor: false, interestLate: '3.99', month: null),
                       itemLine(),
-                      itemWidget('전월세보증금 대출', '사업자와 청년도 걱정없이', titleType: null, interestType: '최저', interestColor: false, interestLate: '2.61', month: null),
+                      itemGoodsWidget('전월세보증금 대출', '사업자와 청년도 걱정없이', titleType: null, interestType: '최저', interestColor: false, interestLate: '2.61', month: null),
                       itemLine(),
-                      itemWidget('주택담보대출', '챗봇과 함께 쉽고 편리하게', titleType: 'NEW', interestType: '최저', interestColor: false, interestLate: '3.01', month: null),
+                      itemGoodsWidget('주택담보대출', '챗봇과 함께 쉽고 편리하게', titleType: 'NEW', interestType: '최저', interestColor: false, interestLate: '3.01', month: null),
                       const SizedBox(height: 20,),
-                      itemLastWidget(2, 0xff57a381, false, '비상금대출', '대출까지 평균 60초!', 'item_7.png', 45),
+                      itemBannerWidget(2, 0xff57a381, false, '비상금대출', '대출까지 평균 60초!', 'item_7.png', 45),
                       const SizedBox(height: 60,),
-                      itemFirstWidget('서비스'),
-                      itemWidget('내 신용정보', '내 신용정보를 안전하고 간편하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemTabWidget('서비스'),
+                      itemGoodsWidget('내 신용정보', '내 신용정보를 안전하고 간편하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('해외송금 보내기', '해외계좌송금과 WU빠른해외송금', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('해외송금 보내기', '해외계좌송금과 WU빠른해외송금', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('해외송금 받기', '지점방문 없이 간편하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('해외송금 받기', '지점방문 없이 간편하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('프렌즈 체크카드', '쓸 때마다 캐시백, 주말엔 2배', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('프렌즈 체크카드', '쓸 때마다 캐시백, 주말엔 2배', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       const SizedBox(height: 20,),
                       Container(height: 18, color: const Color(0xfff5f5f5),),
                       const SizedBox(height: 60,),
-                      itemFirstWidget('제휴서비스'),
-                      itemWidget('해외주식 투자', '한국투자증권에서 제공하는 미니스탁 서비스', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemTabWidget('제휴서비스'),
+                      itemGoodsWidget('해외주식 투자', '한국투자증권에서 제공하는 미니스탁 서비스', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('증권사 주식계좌', '간편하게 개설하는 증권사 계좌', titleType: 'UP', interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('증권사 주식계좌', '간편하게 개설하는 증권사 계좌', titleType: 'UP', interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('제휴 신용카드', '신청은 간편하게 혜택은 다양하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('제휴 신용카드', '신청은 간편하게 혜택은 다양하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       const SizedBox(height: 20,),
-                      itemLastWidget(3, 0xff57a381, false, '해외주식투자', '테슬라, 스타벅스 천원부터', 'item_8.png', 60),
+                      itemBannerWidget(3, 0xff57a381, false, '해외주식투자', '테슬라, 스타벅스 천원부터', 'item_8.png', 60),
                       const SizedBox(height: 60,),
-                      itemFirstWidget('mini'),
-                      itemWidget('카카오뱅크 mini', '10대부터 만들고 용돈을 편하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemTabWidget('mini'),
+                      itemGoodsWidget('카카오뱅크 mini', '10대부터 만들고 용돈을 편하게', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('mini카드', '결제도 ATM도 교통비도 카드 하나로', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('mini카드', '결제도 ATM도 교통비도 카드 하나로', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       itemLine(),
-                      itemWidget('mini 26일저금', '1,000원씩 차곡차곡', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
+                      itemGoodsWidget('mini 26일저금', '1,000원씩 차곡차곡', titleType: null, interestType: null, interestColor: false, interestLate: null, month: null),
                       const SizedBox(height: 120,),
                     ],
                   ),
@@ -319,7 +319,7 @@ class HomeTab2Widget extends GetView<HomeController> {
     );
   }
 
-  Widget itemWidget(String title, String content, {String? titleType, String? interestType, bool interestColor = false, String? interestLate, String? month, bool isGuide = false}) {
+  Widget itemGoodsWidget(String title, String content, {String? titleType, String? interestType, bool interestColor = false, String? interestLate, String? month, bool isGuide = false}) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 900),
       color: isGuide? controller.itemFocus? Colors.grey.withOpacity(0.02) : Colors.white : Colors.white,
@@ -391,7 +391,7 @@ class HomeTab2Widget extends GetView<HomeController> {
     );
   }
 
-  Widget itemFirstWidget(String title) {
+  Widget itemTabWidget(String title) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       alignment: Alignment.centerLeft,
@@ -399,7 +399,7 @@ class HomeTab2Widget extends GetView<HomeController> {
     );
   }
 
-  Widget itemLastWidget(int type, int color, bool fontColor, String title, String content, String imageName, double imageWidth) {
+  Widget itemBannerWidget(int type, int color, bool fontColor, String title, String content, String imageName, double imageWidth) {
     return InkWell(
       onTap: () {
         if (type == 1 || type == 2) {

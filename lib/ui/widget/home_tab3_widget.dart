@@ -26,16 +26,16 @@ class HomeTab3Widget extends GetView<HomeController> {
                     controller: controller.tab3ScrollController,
                     children: [
                       const SizedBox(height: 10,),
-                      itemFirstWidget('오늘'),
+                      itemTabWidget('오늘'),
                       Obx(() => itemWidget('item_9.png', '${controller.userName}의 통장(4567)', '입금 100,000원', '1시간 전', true),),
                       Obx(() => itemWidget('item_9.png', '${controller.userName}의 통장(4567)', '출금 200,000원', '2시간 전', true),),
                       const SizedBox(height: 20,),
-                      itemFirstWidget('이번 주'),
+                      itemTabWidget('이번 주'),
                       itemWidget('item_10.png', '자동이체 등록 완료', '출금계좌(4567)에 오픈뱅킹 자동이체가 등록되었습니다.\n(신청기관명: 국민은행)', '4월 11일', false),
                       itemWidget('item_10.png', '자동이체 등록 완료', '출금계좌(4567)에 펌뱅킹 자동이체가 등록되었습니다.\n(신청기관명: 국민은행)', '4월 11일', false),
                       itemWidget('item_10.png', '체크카드(4567) 캐시백 입금', '03월 카드 결제금액에 대한 캐시백 10,000원이 입금되었습니다.\n· 기본캐시백 5,000원\n· 프로모션 캐시백 5,000원', '4월 11일', false),
                       const SizedBox(height: 20,),
-                      itemFirstWidget('이전 알림'),
+                      itemTabWidget('이전 알림'),
                       Obx(() => itemWidget('item_10.png', '간편이체 완료', '${controller.userName}님이 100,000원을 받으셨습니다.', '3월 24일', false),),
                       itemWidget('item_10.png', '체크카드(4567) 캐시백 입금', '02월 카드 결제금액에 대한 캐시백 10,000원이 입금되었습니다.\n· 기본캐시백 5,000원\n· 프로모션 캐시백 5,000원', '3월 10일', false),
                       itemWidget('item_10.png', '체크카드(4567) 캐시백 입금', '01월 카드 결제금액에 대한 캐시백 10,000원이 입금되었습니다.\n· 기본캐시백 5,000원\n· 프로모션 캐시백 5,000원', '2월 10일', false),
@@ -131,7 +131,7 @@ class HomeTab3Widget extends GetView<HomeController> {
         ));
   }
 
-  Widget itemFirstWidget(String title) {
+  Widget itemTabWidget(String title) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       alignment: Alignment.centerLeft,

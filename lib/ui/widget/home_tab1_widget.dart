@@ -59,15 +59,15 @@ class HomeTab1Widget extends GetView<HomeController> {
                     padding: const EdgeInsets.symmetric(horizontal: 14),
                     children: [
                       const SizedBox(height: 10,),
-                      Obx(() => itemWidget(context, 0xffd9e6ec, '${controller.userName}의 통장 ⭐️️', controller.user1Money, 1)),
+                      Obx(() => itemAccountWidget(context, 0xffd9e6ec, '${controller.userName}의 통장 ⭐️️', controller.user1Money, 1)),
                       const SizedBox(height: 12,),
                       itemBoxWidget(true),
                       const SizedBox(height: 12,),
                       itemBoxWidget(false),
                       const SizedBox(height: 12,),
-                      Obx(() => itemWidget(context, 0xfffbb9c0, '가족통장 👨‍👩‍👧‍👦', controller.user2Money, 2)),
+                      Obx(() => itemAccountWidget(context, 0xfffbb9c0, '가족통장 👨‍👩‍👧‍👦', controller.user2Money, 2)),
                       const SizedBox(height: 12,),
-                      Obx(() => itemWidget(context, 0xffffe300, '데이트통장 💕️️', controller.user3Money, 3)),
+                      Obx(() => itemAccountWidget(context, 0xffffe300, '데이트통장 💕️️', controller.user3Money, 3)),
                       const SizedBox(height: 12,),
                       Container(
                         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -83,7 +83,7 @@ class HomeTab1Widget extends GetView<HomeController> {
                         child: const Text('화면 편집', style: TextStyle(color: Colors.grey, fontSize: 12),),
                       ),
                       const SizedBox(height: 60,),
-                      itemLastWidget('대출까지 평균 60초', '최대 300만원까지 대출 가능한 비상금대출', 'item_20.png', 45),
+                      itemBannerWidget('대출까지 평균 60초', '최대 300만원까지 대출 가능한 비상금대출', 'item_20.png', 45),
                       const SizedBox(height: 40,),
                     ],
                   ),
@@ -99,7 +99,7 @@ class HomeTab1Widget extends GetView<HomeController> {
     );
   }
 
-  Widget itemWidget(BuildContext context, int color, String title, int money, int type) {
+  Widget itemAccountWidget(BuildContext context, int color, String title, int money, int type) {
     return SizedBox(
       height: 220,
       child: Stack(
@@ -191,7 +191,7 @@ class HomeTab1Widget extends GetView<HomeController> {
     );
   }
 
-  Widget itemLastWidget(String title, String content, String imageName, double imageWidth) {
+  Widget itemBannerWidget(String title, String content, String imageName, double imageWidth) {
     return TextButton(
       style: TextButton.styleFrom(foregroundColor: Colors.black),
       onPressed: () async {
