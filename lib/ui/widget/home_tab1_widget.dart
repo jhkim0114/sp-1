@@ -42,7 +42,7 @@ class HomeTab1Widget extends GetView<HomeController> {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                             fit: BoxFit.fitWidth,
-                            image: AssetImage('assets/images/jiho.jpg')
+                            image: AssetImage('assets/images/jiho.png')
                         )
                     ),
                   ),
@@ -139,10 +139,10 @@ class HomeTab1Widget extends GetView<HomeController> {
                       alignment: Alignment.center,
                       child: Stack(
                         children: [
-                          itemPhotoWidget('jiho.jpg', 0, 0),
-                          itemPhotoWidget(type == 2? 'profile_1.jpg' : 'profile_2.jpg', 25, 0),
-                          type == 2? itemPhotoWidget('profile_3.jpg', 50, 0) : Wrap(),
-                          type == 2? itemPhotoWidget('profile_4.jpg', 75, 0) : Wrap(),
+                          itemPhotoWidget('jiho.png', 0, 0),
+                          itemPhotoWidget(type == 2? 'profile_1.png' : 'profile_2.png', 25, 0),
+                          type == 2? itemPhotoWidget('profile_3.png', 50, 0) : Wrap(),
+                          type == 2? itemPhotoWidget('profile_4.png', 75, 0) : Wrap(),
                         ],
                       ),
                     ) : Container()
@@ -301,7 +301,7 @@ class HomeTab1Widget extends GetView<HomeController> {
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            image: AssetImage('assets/images/kb_icon.jpg'
+                            image: AssetImage('assets/images/kb_icon.png'
                             )
                         )
                     ),
@@ -343,7 +343,7 @@ class HomeTab1Widget extends GetView<HomeController> {
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            image: AssetImage('assets/images/nh_icon.jpg'
+                            image: AssetImage('assets/images/nh_icon.png'
                             )
                         )
                     ),
