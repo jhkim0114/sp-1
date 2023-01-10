@@ -159,7 +159,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin{
   set selectAccount(value) => _selectAccount.value = value;
 
   late BuildContext userContext;
-  var init = true;
 
   @override
   void onInit() {
